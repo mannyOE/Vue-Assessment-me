@@ -16,17 +16,12 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  env: {
-    WAKATIME_APP_ID: 'cWEKlxQsMfgYcdUpmFLahoAa',
-    WAKATIME_SECRET_KEY: 'waka_sec_TjzKoJeZjmd7SbIAyCyaxt3W0NynihbTzaaEEIADJXfd4x6qnv1kMQw84uMgJBYxeb0wvFWHaytmbE9X'
-  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/vuex-persist', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -38,6 +33,7 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    'nuxt-typed-vuex',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -50,8 +46,13 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    proxy: true
+  },
+  proxy: {
+    '/wakatime/': {
+      target: 'https://wakatime.com/api/v1/',
+      pathRewrite: { '^/wakatime/': '' }
+    }
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
