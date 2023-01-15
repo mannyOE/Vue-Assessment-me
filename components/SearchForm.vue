@@ -56,6 +56,7 @@ export default defineComponent({
             return this.$accessor.leaders.getLeaders
         },
         users() {
+            //@ts-ignore
             let leaders = this.getLeaders
             if (this.searchField.length > 0) {
                 var regexp = new RegExp("^" + this.searchField, "i");
@@ -90,6 +91,7 @@ export default defineComponent({
                     behavior: 'smooth'
                 });
                 setTimeout(() => {
+                    //@ts-ignore
                     access.classList.add("animate__flash")
                 }, 500)
             }
@@ -98,6 +100,7 @@ export default defineComponent({
 
         eventHandler(e: MouseEvent) {
             const container = document.getElementById('searchform');
+            //@ts-ignore
             if (!container || !container.contains(e.target)) {
                 this.showDropdown = "hidden"
             } else {

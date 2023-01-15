@@ -112,29 +112,34 @@ export default defineComponent({
         }
     },
     computed: {
-        languageFilter() {
+        languageFilter(): string | null {
             let language = null;
             if (this.$route.params.language) {
+                //@ts-ignore
                 language = this.$route.params.language;
             }
             return language;
         },
-        countryObject() {
+        countryObject(): Country {
+            //@ts-ignore
             return this.$accessor.leaders.country
         },
-        countryFilter() {
+        countryFilter(): string | null {
             let country = null;
             if (this.$route.query.country_code) {
+                //@ts-ignore
                 country = this.$route.query.country_code;
                 if (this.countryObject) {
                     country = this.countryObject.name
                 }
             }
+            //@ts-ignore
             return country;
         },
-        hireableFilter() {
-            let hireable = null;
+        hireableFilter(): boolean {
+            let hireable = false;
             if (this.$route.query.is_hireable) {
+                //@ts-ignore
                 hireable = this.$route.query.is_hireable;
             }
             return hireable;
