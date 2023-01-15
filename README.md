@@ -17,7 +17,7 @@ $ yarn start
 $ yarn generate
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+A live Demo is hosted here (https://ahman-kippa.netlify.app/leaders/).
 
 ## Special Directories
 
