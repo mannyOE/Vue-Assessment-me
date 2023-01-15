@@ -2,6 +2,13 @@ import { getterTree, mutationTree, actionTree } from 'typed-vuex'
 import Axios from "axios";
 import { Country, Filter, Leader, StoreState, Summary, User } from '~/types/Leaders'
 
+
+const Axios1 = Axios.create({
+    baseURL: "https://wakatime.com/api/v1/"
+})
+const Axios2 = Axios.create({
+    baseURL: "https://restcountries.com/v2/alpha/"
+})
 export const state = (): StoreState => ({
     leaders: [],
     country: undefined,
@@ -72,7 +79,7 @@ export const actions = actionTree(
                 }
                 exists = true
             }
-            const { data } = await Axios.get("/wakatime/leaders?" + query, {
+            const { data } = await Axios1.get("/leaders?" + query, {
             })
             commit('SET_LEADERS', data.data)
             commit('SET_FILTERS', {
@@ -84,14 +91,14 @@ export const actions = actionTree(
             })
         },
         async getCountry({ commit }, country_code) {
-            const { data } = await Axios.get("/country/" + country_code)
+            const { data } = await Axios2.get("/" + country_code)
             commit('SET_COUNTRY', data)
         },
         async saveUser({ commit }, user) {
             commit('SET_USER', user)
         },
         async getSummary({ commit }, user_id) {
-            const { data } = await Axios.get("/wakatime/users/" + user_id + "/stats/last_7_days")
+            const { data } = await Axios1.get("/users/" + user_id + "/stats/last_7_days")
             commit('SET_SUMMARY', data.data)
         }
     }
