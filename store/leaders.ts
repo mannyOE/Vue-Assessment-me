@@ -72,7 +72,7 @@ export const actions = actionTree(
                 }
                 exists = true
             }
-            const { data } = await Axios.get("/leaders?" + query, {
+            const { data } = await this.$axios.get("/wakatime/leaders?" + query, {
             })
             commit('SET_LEADERS', data.data)
             commit('SET_FILTERS', {
@@ -84,14 +84,14 @@ export const actions = actionTree(
             })
         },
         async getCountry({ commit }, country_code) {
-            const { data } = await Axios.get("/" + country_code)
+            const { data } = await Axios.get("/country/" + country_code)
             commit('SET_COUNTRY', data)
         },
         async saveUser({ commit }, user) {
             commit('SET_USER', user)
         },
         async getSummary({ commit }, user_id) {
-            const { data } = await Axios.get("/users/" + user_id + "/stats/last_7_days")
+            const { data } = await this.$axios.get("/wakatime/users/" + user_id + "/stats/last_7_days")
             commit('SET_SUMMARY', data.data)
         }
     }
