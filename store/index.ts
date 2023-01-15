@@ -1,4 +1,5 @@
 import { getAccessorType, mutationTree, actionTree } from 'typed-vuex'
+import VuexPersistence from 'vuex-persist'
 import { Context } from '@nuxt/types'
 
 import * as Leaders from './leaders'
@@ -33,5 +34,7 @@ export const accessorType = getAccessorType({
     state,
     modules: {
         leaders: Leaders,
-    },
+    }
 })
+
+

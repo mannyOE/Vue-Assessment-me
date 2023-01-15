@@ -14,15 +14,16 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, {
+      href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css", rel: "stylesheet"
+    }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [{ src: '~/plugins/vuex-persist.js', mode: 'client' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -52,6 +53,10 @@ export default {
     '/wakatime/': {
       target: 'https://wakatime.com/api/v1/',
       pathRewrite: { '^/wakatime/': '' }
+    },
+    "/country/": {
+      target: "https://restcountries.com/v2/alpha/",
+      pathRewrite: { '^/country/': '' }
     }
   },
 

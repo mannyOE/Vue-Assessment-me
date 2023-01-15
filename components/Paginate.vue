@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li v-for="(page, index) of available" :key="index">
-                    <a href="#" @click.prevent="$router.push('?page=' + page)"
+                    <a href="#" @click.prevent="gotoPage(page)"
                         :class="Number($route.query.page) === page ? 'dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white' : ''"
                         class="px-3 py-2 text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">{{
                             page
@@ -51,24 +51,48 @@
 </template>
 
 <script lang="ts">
-import { Filter } from '~/types/Leaders';
+import { defineComponent } from 'vue'
+import { Filter } from '~/types/Leaders'
 
-export default {
-    props: ["progress"],
-    watch: {
-        '$route.query.page': function (page) {
-            this.$emit("pageChanged", page)
+export default defineComponent({
+    setup() {
+
+
+        return {}
+    },
+    props: {
+        progress: {
+            type: Boolean,
+            required: true,
+            default: false,
+            readonly: true
+        }
+    },
+    mounted() {
+        if (!this.$route.query.page) {
+            this.$router.push("?page=1")
         }
     },
     methods: {
+        gotoPage(page: number) {
+            let language = this.$route.params.language;
+            let others = this.$route.query
+            this.$router.push({ query: { ...others, page: page.toString() }, params: { language } })
+        },
         nextBtn() {
             if (this.getFilters.page < this.getFilters.total_pages) {
-                this.$router.push("?page=" + (this.getFilters.page + 1))
+                let language = this.$route.params.language;
+                let others = this.$route.query
+                let next = this.getFilters.page + 1
+                this.$router.push({ query: { ...others, page: next.toString() }, params: { language } })
             }
         },
         previousBtn() {
             if (this.getFilters.page > 1) {
-                this.$router.push("?page=" + (this.getFilters.page - 1))
+                let language = this.$route.params.language;
+                let others = this.$route.query
+                let prev = this.getFilters.page - 1
+                this.$router.push({ query: { ...others, page: prev.toString() }, params: { language } })
             }
         }
     },
@@ -95,7 +119,7 @@ export default {
             return list
         }
     }
-}
+})
 </script>
 
 <style scoped>
