@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/wakatime/*"
+  from = "/wakatime/"
   to = "https://wakatime.com/api/v1/"
   status = 200
   query = {path = ":path"}
@@ -8,7 +8,7 @@
 
 ## This rule redirects to an external API, signing requests with a secret
 [[redirects]]
-  from = "/country/*"
+  from = "/country/"
   to = "https://restcountries.com/v2/alpha/"
   status = 200
   query = {path = ":path"}
