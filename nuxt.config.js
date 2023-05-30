@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'kippa-assignment',
+    title: 'Vuew/Nuxt Assessment - Ahman Emmanuel',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -32,7 +32,6 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     'nuxt-typed-vuex',
-    ['@nuxtjs/netlify-files']
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -42,47 +41,6 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
-  netlifyFiles: {
-    netlifyToml: {
-      build: {
-
-      },
-      headers: [
-
-      ],
-      redirects: [
-        {
-          from: '/wakatime/*',
-          to: 'https://wakatime.com/api/v1/:splat',
-          status: 302,
-          force: true
-        },
-        {
-          from: "/country/*",
-          to: "https://restcountries.com/v2/alpha/:splat",
-          status: 302,
-          force: true
-        }
-      ]
-    }
-  },
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  // axios: {
-  //   proxyHeaders: false,
-  //   credentials: false,
-  //   baseURL: "https://cors-anywhere.urbanspaces.ng/https://wakatime.com/api/v1/"
-  // },
-  // proxy: {
-  //   '/wakatime/': {
-  //     target: 'https://wakatime.com/api/v1/',
-  //     pathRewrite: { '^/wakatime/': '' }
-  //   },
-  //   "/country/": {
-  //     target: "https://restcountries.com/v2/alpha/",
-  //     pathRewrite: { '^/country/': '' }
-  //   }
-  // },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
