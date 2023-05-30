@@ -32,6 +32,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     'nuxt-typed-vuex',
+    ['@nuxtjs/netlify-files']
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -41,6 +42,30 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
+  netlifyFiles: {
+    netlifyToml: {
+      build: {
+
+      },
+      headers: [
+
+      ],
+      redirects: [
+        {
+          from: '/wakatime/*',
+          to: 'https://wakatime.com/api/v1/:splat',
+          status: 302,
+          force: true
+        },
+        {
+          from: "/country/*",
+          to: "https://restcountries.com/v2/alpha/:splat",
+          status: 302,
+          force: true
+        }
+      ]
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
