@@ -68,22 +68,21 @@ export default {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    proxy: true,
-    proxyHeaders: false,
-    credentials: false,
-    baseURL: "https://wakatime.com/api/v1/"
-  },
-  proxy: {
-    '/wakatime/': {
-      target: 'https://wakatime.com/api/v1/',
-      pathRewrite: { '^/wakatime/': '' }
-    },
-    "/country/": {
-      target: "https://restcountries.com/v2/alpha/",
-      pathRewrite: { '^/country/': '' }
-    }
-  },
+  // axios: {
+  //   proxyHeaders: false,
+  //   credentials: false,
+  //   baseURL: "https://cors-anywhere.urbanspaces.ng/https://wakatime.com/api/v1/"
+  // },
+  // proxy: {
+  //   '/wakatime/': {
+  //     target: 'https://wakatime.com/api/v1/',
+  //     pathRewrite: { '^/wakatime/': '' }
+  //   },
+  //   "/country/": {
+  //     target: "https://restcountries.com/v2/alpha/",
+  //     pathRewrite: { '^/country/': '' }
+  //   }
+  // },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

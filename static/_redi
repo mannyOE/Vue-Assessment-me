@@ -1,3 +1,0 @@
-# Redirects from what the browser requests to what we serve
-/wakatime/*             https://wakatime.com/api/v1/:options
-/country/*              https://restcountries.com/v2/alpha/:options
