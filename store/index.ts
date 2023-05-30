@@ -1,5 +1,5 @@
 import { getAccessorType, mutationTree, actionTree } from 'typed-vuex'
-import VuexPersistence from 'vuex-persist'
+// import VuexPersistence from 'vuex-persist'
 import { Context } from '@nuxt/types'
 
 import * as Leaders from './leaders'
