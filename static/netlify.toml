@@ -2,7 +2,6 @@
   from = "/wakatime/"
   to = "https://wakatime.com/api/v1/"
   status = 200
-  query = {path = ":path"}
   force = true
   headers = {Access-Control-Allow-Origin = "*"}
 
@@ -11,6 +10,5 @@
   from = "/country/"
   to = "https://restcountries.com/v2/alpha/"
   status = 200
-  query = {path = ":path"}
   force = true # COMMENT: ensure that we always redirect
   headers = {Access-Control-Allow-Origin = "*"}
